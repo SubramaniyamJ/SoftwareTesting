@@ -9,8 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class SeliniumWebDriver 
-{
-    
+{    
     @Test
     public void shouldAnswerWithTrue() throws MalformedURLException
     {
