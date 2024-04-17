@@ -1,6 +1,5 @@
 package com.example;
 
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import org.junit.Test;
