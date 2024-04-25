@@ -25,8 +25,7 @@ public class DataDriverFrameworks2 {
             driver.get("https://www.demoblaze.com/");
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         }
-        
-        
+
         @Test
         public void cartCheck() throws Exception{
 
@@ -37,7 +36,6 @@ public class DataDriverFrameworks2 {
             driver.switchTo().alert().accept();
             driver.findElement(By.linkText("Cart")).click();
             String productName = driver.findElement(By.xpath("//*[@id='tbodyid']/tr/td[2]")).getText();
-            
             assertEquals("MacBook air", productName);    
         }
         
@@ -55,6 +53,8 @@ public class DataDriverFrameworks2 {
             driver.findElement(By.id("loginusername")).sendKeys(username);
             driver.findElement(By.id("loginpassword")).sendKeys(password);
             driver.findElement(By.xpath("//*[@id='logInModal']/div/div/div[3]/button[2]")).click();
+            Thread.sleep(3000);
+            driver.findElement(By.xpath("//*[@id='navbarExample']/ul/li[1]/a")).click();
             Thread.sleep(3000);
             String user = driver.findElement(By.xpath("//*[@id='nameofuser']")).getText();
             assertEquals(user, "Welcome " + username);
