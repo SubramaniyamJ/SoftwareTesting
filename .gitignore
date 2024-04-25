@@ -1,2 +1,2 @@
-src\test\java\com\example\SeliniumLocator.java
-src\test\java\com\example\AppTestXL.java
+src/test/java/com/example/AppTestOrangeHR.java
+src/test/java/com/example/AppTestXL.java
