@@ -1,26 +1,36 @@
 
 package com.example;
 
+import java.time.Duration;
 import java.util.logging.LogManager;
 
+import org.bouncycastle.crypto.prng.drbg.DualECPoints;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Testngone
 {
+
+   WebDriver driver;
+
+   @BeforeTest
+   public void setup(){
+      driver=new ChromeDriver();
+      driver.navigate().to("https://economictimes.indiatimes.com/et-now/results");
+      driver.manage().window().maximize();
+      driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+   }
    @Test
    public void map() throws InterruptedException
    {
-       WebDriver driver=new ChromeDriver();
-       driver.navigate().to("https://economictimes.indiatimes.com/et-now/results");
-       driver.manage().window().maximize();
 
-       Thread.sleep(3000);
-       driver.findElement(By.xpath("/html/body/main/div[4]/nav/div[10]/a")).click();
+      driver.findElement(By.xpath("/html/body/main/div[4]/nav/div[10]/a")).click();
    
         WebElement selectElement = driver.findElement(By.id("amcSelection"));
 
@@ -51,7 +61,10 @@ public class Testngone
 
       driver.findElement(By.xpath("/html/body/main/div[10]/section[3]/div/ul/li[2]")).click();
 
-      driver.quit();
+   }
 
+   @AfterTest
+   public void setdown(){
+      driver.quit();
    }
 }
