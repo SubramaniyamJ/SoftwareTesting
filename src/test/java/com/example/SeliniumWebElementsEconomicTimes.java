@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.v121.indexeddb.model.Key;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -21,9 +22,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  * Unit test for simple App.
  */
 public class SeliniumWebElementsEconomicTimes {
-    /**
-     * Rigorous Test :-)
-     */
+    @BeforeMethod
+
     @Test
     public void shouldAnswerWithTrue() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
