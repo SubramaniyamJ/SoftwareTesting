@@ -60,9 +60,11 @@ public class ExtentReportOne {
         js.executeScript("window.scrollBy(0, 2500)");
         driver.findElement(By.linkText("Calculators")).click();
         String s = driver.findElement(By.xpath("//*[@id='root']/div[2]/h1")).getText();
+        String desPath = "src/test/java/com/ExtentReports/ScreenCapture/extentReportOneCalculator.png";
+        File srFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(srFile, new File(desPath));
         if(s.equals("Calculators")){
-            test.log(Status.PASS, test.addScreenCapture(capture(driver))+ "Test Failed");
-
+            test.addScreenCaptureFromPath(desPath);
             test.log(Status.PASS, "\"Calculator\" text present");
         }
         else
@@ -82,8 +84,9 @@ public class ExtentReportOne {
         year.clear();
         year.sendKeys(String.valueOf(tenure));
 
-        if(driver.getPageSource().contains("Your Amortization Details (Yearly/Monthly)"))
+        if(driver.getPageSource().contains("Your Amortization Details (Yearly/Monthly)")){
             test.log(Status.PASS, "Required text displayed");
+        }
         else
             test.log(Status.FAIL, "Required text not displayed");
         
